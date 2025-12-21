@@ -16,16 +16,16 @@
 celery_fastapi_demo/
 ├── app/
 │ ├── __init__.py
-│ ├── celeryconfig.py # Конфиг Celery
-│ ├── consumer.py # Endpoint для получения статуса задачи
-│ ├── main.py # FastAPI app
-│ ├── producer.py # Endpoint для постановки задач
-│ ├── tasks.py # Регистрация Celery задач
-│ └── schemas.py # Pydantic-схемы
+│ ├── celeryconfig.py      # Конфиг Celery
+│ ├── consumer.py          # Endpoint для получения статуса задачи
+│ ├── main.py              # FastAPI app
+│ ├── producer.py          # Endpoint для постановки задач
+│ ├── tasks.py             # Регистрация Celery задач
+│ └── schemas.py           # Pydantic-схемы
 │
-├── docker-compose.yml # Инфраструктура (RabbitMQ, Redis, Flower)
-├── Makefile # Быстрый запуск API и worker
-├── pyproject.toml # Poetry/зависимости
+├── docker-compose.yml   # Инфраструктура (RabbitMQ, Redis, Flower)
+├── Makefile             # Быстрый запуск API и worker
+├── pyproject.toml       # Poetry/зависимости
 └── README.md
 ```
 
