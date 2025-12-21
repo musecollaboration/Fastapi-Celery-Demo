@@ -1,0 +1,25 @@
+[project]
+name = "celery-fastapi-01-basics"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Aleksandr Terekhov",email = "name@mail.com"}
+]
+
+packages = [
+	{ include = "app" }
+]
+
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi (>=0.125.0,<0.126.0)",
+    "uvicorn[standard] (>=0.38.0,<0.39.0)",
+    "celery (>=5.6.0,<6.0.0)",
+    "redis (>=7.1.0,<8.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+.pylintrc
+
+# VSCode
+.vscode/
+
+# Poetry
+poetry.lock
+
+# Env
+.env
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# Logs
+*.log
+
+# Docker
+*.pid
+
+# Test
+htmlcov/
+.coverage
+.tox/
+
+# Misc
+*.swp
+*.swo
+.idea/
