@@ -1,19 +1,20 @@
 """Регистрация Celery задач."""
+from app.schemas import AddArgs, AddResult
 from celery import Celery
 
 celery_app = Celery('producer')
 celery_app.config_from_object('app.celeryconfig')
 
 
-@celery_app.task(name="tasks.low-priority")
-def add_low_task(a: int, b: int) -> int:
+@celery_app.task(name="tasks.low-priority", pydantic=True)
+def add_low_task(args: AddArgs) -> AddResult:
     """Задача сложения двух чисел."""
-    print(f"Выполняется low-priority: {a} + {b}")
-    return a + b
+    print(f"Выполняется low-priority: {args.a} + {args.b}")
+    return AddResult(result=args.a + args.b)
 
 
-@celery_app.task(name="tasks.high-priority")
-def add_high_task(a: int, b: int) -> int:
+@celery_app.task(name="tasks.high-priority", pydantic=True)
+def add_high_task(args: AddArgs) -> AddResult:
     """Задача умножения двух чисел."""
-    print(f"Выполняется high-priority: {a} * {b}")
-    return a * b
+    print(f"Выполняется high-priority: {args.a} * {args.b}")
+    return AddResult(result=args.a * args.b)
