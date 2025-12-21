@@ -1,9 +1,7 @@
-
 from kombu import Queue
 
 
 # Брокер и backend
-
 
 broker_url = 'pyamqp://guest@localhost//'
 result_backend = 'redis://localhost:6379/1'

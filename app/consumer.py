@@ -12,6 +12,7 @@ router = APIRouter()
 
 @router.get("/consume", response_model=TaskStatusResponse)
 async def consume_message(add_id: Annotated[AddId, Depends()]) -> TaskStatusResponse:
+    '''Endpoint для получения статуса и результата задачи по её ID.'''
     result = AsyncResult(
         add_id.task_id,
         app=celery_app
