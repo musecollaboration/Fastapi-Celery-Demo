@@ -19,7 +19,7 @@ enable_utc = True
 task_ignore_result = False
 result_expires = 86400  # TTL 24 часа
 
-# Наблюдаемость и контроль времени
+# Мониторинг и контроль времени
 task_track_started = True
 task_time_limit = 300        # жёсткий лимит: 5 минут
 task_soft_time_limit = 260   # мягкий: 4 мин 20 сек
