@@ -12,20 +12,22 @@
 
 ## Структура проекта
 
-celery_fastapi_01_basics/
+```txt
+celery_fastapi_demo/
 ├── app/
-│ ├── **init**.py
+│ ├── __init__.py
 │ ├── celeryconfig.py # Конфиг Celery
 │ ├── consumer.py # Endpoint для получения статуса задачи
 │ ├── main.py # FastAPI app
 │ ├── producer.py # Endpoint для постановки задач
 │ ├── tasks.py # Регистрация Celery задач
-│ ├── schemas.py # Pydantic-схемы
-│ └── **pycache**/
+│ └── schemas.py # Pydantic-схемы
+│
 ├── docker-compose.yml # Инфраструктура (RabbitMQ, Redis, Flower)
 ├── Makefile # Быстрый запуск API и worker
 ├── pyproject.toml # Poetry/зависимости
 └── README.md
+```
 
 ## Быстрый старт
 
@@ -58,6 +60,8 @@ make celery
 ```
 
 Откройте http://127.0.0.1:8000/docs
+
+---
 
 5. **Мониторинг очередей (Flower)**
 
