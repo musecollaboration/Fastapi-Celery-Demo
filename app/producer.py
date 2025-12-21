@@ -1,3 +1,4 @@
+"""Модуль с endpoint для отправки задач в очередь Celery."""
 from fastapi import APIRouter
 
 from app.schemas import Message

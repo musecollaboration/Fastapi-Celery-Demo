@@ -1,3 +1,4 @@
+"""Модуль с endpoint для получения статуса и результата задачи по её ID."""
 from typing import Annotated
 
 from celery.result import AsyncResult

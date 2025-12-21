@@ -109,7 +109,7 @@ curl "http://localhost:8000/consume?task_id=<ID_ЗАДАЧИ>"
 
 ## Мониторинг
 
-- Flower: http://localhost:5555 (логин/пароль guest/guest)
+- Flower: http://localhost:5555
 - RabbitMQ UI: http://localhost:15672 (логин/пароль guest/guest)
 
 ---

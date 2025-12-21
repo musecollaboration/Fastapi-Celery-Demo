@@ -1,8 +1,8 @@
+"""Конфигурация Celery."""
 from kombu import Queue
 
 
 # Брокер и backend
-
 broker_url = 'pyamqp://guest@localhost//'
 result_backend = 'redis://localhost:6379/1'
 
@@ -24,17 +24,17 @@ task_track_started = True
 task_time_limit = 300        # жёсткий лимит: 5 минут
 task_soft_time_limit = 260   # мягкий: 4 мин 20 сек
 
-# Определяет, какая задача в какую очередь попадёт (маршрутизация)
-task_routes = {
-    'tasks.low-priority': {'queue': 'low-priority'},
-    'tasks.high-priority': {'queue': 'high-priority'},
-}
-
 # Для явного создания очередей на стороне брокера.
 task_queues = (
     Queue('low-priority'),
     Queue('high-priority'),
 )
+
+# Определяет, какая задача в какую очередь попадёт (маршрутизация)
+task_routes = {
+    'tasks.low-priority': {'queue': 'low-priority'},
+    'tasks.high-priority': {'queue': 'high-priority'},
+}
 
 # Аннотации (ограничения и лимиты)
 task_annotations = {

@@ -1,3 +1,4 @@
+"""Схемы Pydantic для валидации и сериализации данных."""
 from typing import Annotated
 
 from pydantic import BaseModel, Field

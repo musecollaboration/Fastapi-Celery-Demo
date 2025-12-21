@@ -1,3 +1,4 @@
+"""Основной файл приложения FastAPI с интеграцией Celery."""
 from fastapi import FastAPI
 
 from . import consumer_router, producer_router
