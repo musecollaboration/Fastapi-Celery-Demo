@@ -22,3 +22,7 @@ class AddArgs(BaseModel):
 
 class AddResult(BaseModel):
     result: Annotated[int, Field(description="Результат операции")]
+
+
+class AddId(BaseModel):
+    task_id: Annotated[str, Field(description="ID задачи в Celery")]
