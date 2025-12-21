@@ -12,21 +12,20 @@
 
 ## Структура проекта
 
-```
 celery_fastapi_01_basics/
 ├── app/
-│   ├── __init__.py
-│   ├── celeryconfig.py      # Конфиг Celery
-│   ├── consumer.py          # Endpoint для получения статуса задачи
-│   ├── main.py              # FastAPI app
-│   ├── producer.py          # Endpoint для постановки задач
-│   ├── tasks.py             # Регистрация Celery задач
-│   └── __pycache__/
-├── docker-compose.yml       # Инфраструктура (RabbitMQ, Redis, Flower)
-├── Makefile                 # Быстрый запуск API и worker
-├── pyproject.toml           # Poetry/зависимости
+│ ├── **init**.py
+│ ├── celeryconfig.py # Конфиг Celery
+│ ├── consumer.py # Endpoint для получения статуса задачи
+│ ├── main.py # FastAPI app
+│ ├── producer.py # Endpoint для постановки задач
+│ ├── tasks.py # Регистрация Celery задач
+│ ├── schemas.py # Pydantic-схемы
+│ └── **pycache**/
+├── docker-compose.yml # Инфраструктура (RabbitMQ, Redis, Flower)
+├── Makefile # Быстрый запуск API и worker
+├── pyproject.toml # Poetry/зависимости
 └── README.md
-```
 
 ## Быстрый старт
 
@@ -57,6 +56,8 @@ make celery
 # или вручную:
 # poetry run celery -A app.tasks worker --loglevel=info -Q low-priority,high-priority
 ```
+
+Откройте http://127.0.0.1:8000/docs
 
 5. **Мониторинг очередей (Flower)**
 
@@ -126,4 +127,4 @@ MIT
 
 ## Автор
 
-### [Python Backend на FastAPI](https://stepik.org/a/223717)
+#### [Python Backend на FastAPI](https://stepik.org/a/223717)
