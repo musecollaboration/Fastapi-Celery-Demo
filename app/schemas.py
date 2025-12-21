@@ -1,6 +1,6 @@
-from pydantic import BaseModel
-from pydantic import Field
 from typing import Annotated
+
+from pydantic import BaseModel, Field
 
 
 class TaskStatusResponse(BaseModel):

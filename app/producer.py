@@ -1,7 +1,8 @@
 from fastapi import APIRouter
-from pydantic import Field
+
 from app.schemas import Message
-from app.tasks import add_low_task, add_high_task
+from app.tasks import add_high_task, add_low_task
+
 
 router = APIRouter(prefix="/producer")
 

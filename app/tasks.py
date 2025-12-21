@@ -1,6 +1,8 @@
 """Регистрация Celery задач."""
-from app.schemas import AddArgs, AddResult
 from celery import Celery
+
+from app.schemas import AddArgs, AddResult
+
 
 celery_app = Celery('producer')
 celery_app.config_from_object('app.celeryconfig')

@@ -23,3 +23,14 @@ dependencies = [
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+isort = "^7.0.0"
+
+[tool.isort]
+profile = "pycharm"
+multi_line_output = 0
+use_parentheses = false
+include_trailing_comma = false
+force_grid_wrap = 0
+line_length = 120

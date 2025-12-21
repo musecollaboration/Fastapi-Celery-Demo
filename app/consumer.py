@@ -1,9 +1,11 @@
 from typing import Annotated
-from fastapi import APIRouter, Query
-from app.schemas import TaskStatusResponse
+
 from celery.result import AsyncResult
+from fastapi import APIRouter, Query
+
+from app.schemas import AddResult, TaskStatusResponse
 from app.tasks import celery_app
-from app.schemas import AddResult
+
 
 router = APIRouter()
 

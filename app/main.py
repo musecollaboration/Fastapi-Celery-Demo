@@ -1,5 +1,7 @@
 from fastapi import FastAPI
+
 from . import consumer_router, producer_router
+
 
 app = FastAPI()
 
