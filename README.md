@@ -114,6 +114,44 @@ curl "http://localhost:8000/consume?task_id=<ID_ЗАДАЧИ>"
 
 ---
 
+## Периодические задачи Celery Beat
+
+В проекте реализованы оба способа добавления периодических задач:
+
+### 1. Статические задачи через celeryconfig.py
+
+В файле `app/celeryconfig.py` можно задать расписание задач жёстко:
+
+```python
+beat_schedule = {
+	'my-periodic-task': {
+		'task': 'app.tasks.my_periodic_task',
+		'schedule': crontab(minute='*/1'),  # каждую минуту
+		'args': ()  # позиционные аргументы (если нужны)
+	},
+}
+```
+
+Такой способ подходит для задач с постоянными параметрами и расписанием.
+
+### 2. Динамические задачи через сигнал on_after_configure
+
+В файле `app/tasks.py` реализовано динамическое добавление задач:
+
+```python
+@celery_app.on_after_configure.connect
+def setup_periodic_tasks(sender: Celery, **kwargs):
+	sender.add_periodic_task(
+		timedelta(seconds=30),
+		my_periodic_task.s(5, 10),
+		name='dynamic-each-30-seconds'
+	)
+```
+
+Аргументы и расписание можно формировать программно (например, брать из БД, API, переменных окружения и т.д.).
+
+---
+
 ## Возможности для расширения
 
 - Добавить периодические задачи (Periodic Tasks)
