@@ -1,6 +1,16 @@
 """Конфигурация Celery."""
 from kombu import Queue
 
+from celery.schedules import crontab
+
+beat_schedule = {
+    'my-periodic-task': {
+        'task': 'app.tasks.my_periodic_task',  # имя задачи
+        'schedule': crontab(minute='*/1'),     # периодичность (каждую минуту)
+        'args': ()                             # позиционные аргументы для задачи
+    },
+}
+
 
 # Брокер и backend
 broker_url = 'pyamqp://guest@localhost//'
@@ -34,6 +44,7 @@ task_queues = (
 task_routes = {
     'tasks.low-priority': {'queue': 'low-priority'},
     'tasks.high-priority': {'queue': 'high-priority'},
+    'app.tasks.my_periodic_task': {'queue': 'low-priority'},  # Периодическая задача в low-priority
 }
 
 # Аннотации (ограничения и лимиты)
